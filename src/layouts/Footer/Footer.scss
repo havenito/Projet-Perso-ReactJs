@@ -1,0 +1,85 @@
+$primary-bg-color: #0a0a0a; // Fond sombre
+$accent-color: #ffcc00; // Jaune/or pour le contraste
+$footer-bg-color: rgba(15, 15, 15, 0.9); // Fond du footer
+$footer-hover-color: rgba(255, 215, 0, 0.2); // Effet de survol sur les icônes
+$footer-text-color: #c2c2c2; // Gris clair pour le texte
+$footer-link-color: #c8aa6e; // Jaune pour les liens
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: $footer-bg-color;
+  color: $footer-text-color;
+  padding: 20px 0;
+  text-align: center;
+  z-index: 9999; // Assure-toi qu'il est toujours au-dessus des autres éléments
+  transform: translateY(100%); // Commence hors de l'écran (bas)
+  transition: transform 0.3s ease; // Effet de transition pour faire apparaître le footer
+
+  // Lorsque l'utilisateur est tout en bas de la page
+  &.visible {
+    transform: translateY(0); // Le footer se déplace en position visible
+  }
+
+  &__content {
+    font-size: 1rem;
+    font-weight: normal;
+    color: $footer-text-color;
+    margin-bottom: 15px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+
+    a {
+      color: $footer-link-color;
+      font-size: 2rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        color: $accent-color;
+        transform: scale(1.1);
+      }
+
+      // Optionally, add a circle background behind the icons
+      .fa {
+        border-radius: 50%;
+        background-color: $footer-bg-color;
+        padding: 10px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $footer-hover-color;
+        }
+      }
+    }
+  }
+}
+
+// Responsivité pour les petits écrans
+@media (max-width: 768px) {
+  .footer {
+    padding: 15px 0;
+
+    &__content {
+      font-size: 0.875rem;
+    }
+
+    &__social {
+      gap: 10px;
+
+      a {
+        font-size: 1.75rem;
+      }
+    }
+  }
+}

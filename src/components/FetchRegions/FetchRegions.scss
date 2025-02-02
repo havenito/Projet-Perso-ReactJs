@@ -1,0 +1,81 @@
+$primary-bg-color: #2b2b2b; // Fond sombre
+$secondary-bg-color: #1e1e1e; // Fond secondaire
+$accent-color: #ffcc00; // Jaune/or pour les accents
+$hover-color: #b89400; // Jaune plus foncé au survol
+$card-bg-color: #4e4e4e; // Fond des cartes
+$card-shadow-color: rgba(0, 0, 0, 0.5); // Ombre des cartes
+$border-color: #333; // Gris pour les bordures
+$light-gray: #3a3a3a; // Gris clair pour les textes secondaires
+$white-color: #ffffff; // Blanc pour le texte
+$gray-color: #c2c2c2; // Gris clair pour les titres secondaires
+
+// Conteneur principal
+.regions-container {
+  background-color: $primary-bg-color;
+  color: $white-color;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// Titre principal
+.regions-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  color: $accent-color;
+}
+
+// Grille des régions
+.regions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // 2 colonnes sur grand écran
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px; // Un peu d'espace entre le titre et les cartes
+
+  // Adaptation pour les écrans plus petits
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr); // Une seule colonne sur les petits écrans
+  }
+}
+
+// Carte des régions
+.region-card {
+  background-color: $card-bg-color;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px $card-shadow-color;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid $border-color;
+
+  &:hover {
+    background-color: $hover-color;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
+  }
+  
+  .region-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: $accent-color;
+    text-align: center;
+  }
+}
+
+// Responsivité pour les petits écrans
+@media (max-width: 768px) {
+  .regions-grid {
+    grid-template-columns: repeat(1, 1fr); // Une seule colonne sur les petits écrans
+  }
+
+  .regions-title {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,185 @@
+/* Couleurs inspirées de League of Legends */
+$primary-color: #ffcc00; /* Jaune doré de LoL */
+$secondary-color: #1d1f21; /* Couleur sombre typique */
+$tertiary-color: #121416; /* Couleur d'accentuation */
+$highlight-color: #6d4c41; /* Un bronze doré */
+$hover-bg: #303030; /* Fond au survol plus sombre */
+
+$font-family: 'Montserrat', sans-serif; /* Style moderne et épuré */
+$heading-font: 'Roboto', sans-serif; /* Police plus audacieuse pour les titres */
+
+/* Conteneur principal avec la galerie et la section de détails */
+.perso-container {
+  display: flex;
+  padding: 4rem 2rem;
+  background-color: $tertiary-color;
+  height: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;  /* Permet à la mise en page de se réorganiser sur des écrans plus petits */
+}
+
+.perso-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  flex: 1 1 70%;  /* La galerie prend 70% de l'espace disponible */
+  margin-right: 2rem; /* Ajout d'un espace entre la galerie et les détails */
+}
+
+.perso-details-container {
+  flex: 0 0 28%;  /* La section des détails prend 28% de la largeur de l'écran */
+  margin-left: 2rem;
+  background-color: $secondary-color;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  color: #fff;
+
+  /* Responsive : rétrécir la largeur sur les petits écrans */
+  @media (max-width: 1024px) {
+    flex: 0 0 40%;  /* Passe à 40% de l'espace sur les écrans plus petits */
+  }
+
+  @media (max-width: 768px) {
+    flex: 0 0 100%;  /* Sur mobile, occupe toute la largeur */
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+}
+
+/* Titre de la galerie */
+.perso-title {
+  font-family: $heading-font;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $primary-color;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Élément individuel de la galerie */
+.perso-item {
+  background-color: $secondary-color;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  padding: 1.5rem;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Liens des personnages */
+.perso-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.perso-image {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  border: 3px solid $primary-color;
+  margin-bottom: 1rem;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.perso-name {
+  font-family: $font-family;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 0.5rem;
+}
+
+/* Section des commentaires */
+.perso-comment-section {
+  padding: 1.5rem;
+  background-color: #333;
+  border-radius: 12px;
+  margin-top: 2rem;
+  color: #fff;
+
+  .comment-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Détails du champion */
+.perso-details {
+  background-color: $secondary-color;
+  color: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 3rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+
+  h3 {
+    font-family: $heading-font;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: $primary-color;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #ccc;
+
+    strong {
+      color: $primary-color;
+    }
+  }
+}
+
+/* Animation pour le survol des éléments */
+.perso-item:hover .perso-name {
+  color: $highlight-color;
+}
+
+/* Gestion des effets de survol et des détails */
+.perso-item:hover .perso-name {
+  color: $highlight-color;
+}
